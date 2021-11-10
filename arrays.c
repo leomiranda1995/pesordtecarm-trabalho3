@@ -14,13 +14,13 @@ void geraVetor(int* vetor, int tam, int cont) {
 void printVetor(int *vetor, int tam, int cont){
 	if (cont < tam-1) {
 		printf("%d, ", vetor[cont]);
-		printVetor(vetor, tam, ++cont);
 	} else if (cont < tam) {
 		printf("%d", vetor[cont]);
-		printVetor(vetor, tam, ++cont);
 	} else {
 		return;
 	}
+	
+	printVetor(vetor, tam, ++cont);
 }
 
 void leArquivo(int* vetor, int tam){

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #include "screen.c"
 #include "arrays.c"
@@ -33,6 +34,7 @@ int main(){
 
 void NumerosInteiros(){
 	int opcaoVetor, i, tamanho;
+	clock_t t;
 	
 	tamanho = tamanhoVetor();
 	
@@ -79,20 +81,26 @@ void NumerosInteiros(){
 	copiaVetor(vetor,vetorBubbleSort,tamanho);
 
 	printf("Vetor original:\n");
-	printVetor(vetor, tamanho, 0);
-
+//	printVetor(vetor, tamanho, 0);
+	
 	// Ordenando o vetor com quickSort
+	t = clock();
 	quickSort(vetorQuickSort, 0, tamanho-1);
-	printf("\n\nVetor ordenado pelo quickSort:\n");
-	printVetor(vetorQuickSort, tamanho, 0);
+	t = clock() - t;
+	printf("\n\nVetor ordenado pelo QuickSort: (Tempo de execucao: %2f ms)\n",  ((double)t)/((CLOCKS_PER_SEC/1000)));
+//	printVetor(vetorQuickSort, tamanho, 0);
 
     //Ordenando o vetor com mergeSort
+    t = clock();
 	mergesort(vetorMergeSort,tamanho);
-	printf("\n\nVetor ordenado pelo mergeSort:\n");
-	printVetor(vetorMergeSort, tamanho, 0);
+	t = clock() - t;
+	printf("\n\nVetor ordenado pelo MergeSort: (Tempo de execucao: %2f ms)\n",  ((double)t)/((CLOCKS_PER_SEC/1000)));
+//	printVetor(vetorMergeSort, tamanho, 0);
 
 	//Ordenando o vetor com bubble
+	t = clock();
 	bubble(vetorBubbleSort,tamanho);
-	printf("\n\nVetor ordenado pelo bubble:\n");
-	printVetor(vetorBubbleSort, tamanho, 0);
+	t = clock() - t;
+	printf("\n\nVetor ordenado pelo BubbleSort: (Tempo de execucao: %2f ms)\n",  ((double)t)/((CLOCKS_PER_SEC/1000)));
+//	printVetor(vetorBubbleSort, tamanho, 0);
 }
