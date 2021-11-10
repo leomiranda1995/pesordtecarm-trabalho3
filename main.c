@@ -7,6 +7,9 @@
 #include "order.c"
 
 void NumerosInteiros();
+void NumerosReais();
+void Palavras();
+void Datas();
 
 int main(){	
 	int opcaoDado, opcaoContinuar;
@@ -19,6 +22,18 @@ int main(){
         switch (opcaoDado) {
 			case 1:				
 				NumerosInteiros();
+				break;
+				
+			case 2:
+				NumerosReais();
+				break;
+			
+			case 3:
+				Palavras();
+				break;
+			
+			case 4:
+				Datas();
 				break;
 		}
 
@@ -103,4 +118,22 @@ void NumerosInteiros(){
 	t = clock() - t;
 	printf("\n\nVetor ordenado pelo BubbleSort: (Tempo de execucao: %2f ms)\n",  ((double)t)/((CLOCKS_PER_SEC/1000)));
 //	printVetor(vetorBubbleSort, tamanho, 0);
+}
+
+void NumerosReais(){
+	cabecalho();
+	
+	printf("\n\nNumeros reais aqui...\n\n");
+}
+
+void Palavras(){
+	cabecalho();
+	
+	printf("\n\nPalavras aqui...\n\n");
+}
+
+void Datas(){
+	cabecalho();
+	
+	printf("\n\nDatas aqui...\n\n");
 }
