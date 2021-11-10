@@ -4,7 +4,7 @@
 
 void geraVetor(int* vetor, int tam, int cont) {		
 	if (cont < tam) {
-		vetor[cont] = rand();
+		vetor[cont] = rand();		
 		geraVetor(vetor, tam, ++cont);
 	} else {
 		return;
@@ -12,11 +12,13 @@ void geraVetor(int* vetor, int tam, int cont) {
 }
 
 void printVetor(int *vetor, int tam, int cont){
-	if (cont < tam) {
+	if (cont < tam-1) {
 		printf("%d, ", vetor[cont]);
 		printVetor(vetor, tam, ++cont);
-	} else {
+	} else if (cont < tam) {
 		printf("%d", vetor[cont]);
+		printVetor(vetor, tam, ++cont);
+	} else {
 		return;
 	}
 }
