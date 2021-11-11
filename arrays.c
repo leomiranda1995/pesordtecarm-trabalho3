@@ -51,9 +51,11 @@ void leArquivo(int* vetor, int tam){
     fclose(arquivo);
 }
 
-void copiaVetor(int* vetorO,int* vetorC,int tam){
-	int i;
-    for (i=0; i<tam; ++i){
-        vetorC[i] = vetorO[i];
-    }
+void copiaVetor(int* vetorOriginal,int* vetorCopia,int tam, int cont){
+	if (cont < tam){
+		vetorCopia[cont] = vetorOriginal[cont];
+		copiaVetor(vetorOriginal, vetorCopia, tam, ++cont);
+	} else {
+		return;
+	}
 }

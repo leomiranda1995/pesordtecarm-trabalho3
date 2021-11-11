@@ -18,7 +18,7 @@ int main(){
 	do {
 		cabecalho();
         opcaoDado = opcaoTipoDado();
-        cabecalho();        
+        cabecalho();
         
         switch (opcaoDado) {
 			case 1:				
@@ -38,8 +38,9 @@ int main(){
 				break;
 		}
 
-		printf("\n\n1 - Reiniciar");
+		printf("\n\n\n1 - Reiniciar");
 		printf("\n0 - Sair\n");
+		printf("\nSelecine uma opcao: ");
 		scanf("%d", &opcaoContinuar);
 	} while(opcaoContinuar != 0);
 	
@@ -62,11 +63,10 @@ void NumerosInteiros(){
 		printf("\n\nSelecione uma opcao: ");
 		scanf("%d", &opcaoVetor);
 	} while ((opcaoVetor != 1) && (opcaoVetor != 2) && (opcaoVetor != 3));
-	
-	
+		
 	tamanho = tamanhoVetor(opcaoVetor);
 	
-	int vetor[tamanho];	
+	int vetor[tamanho];
 	int vetorQuickSort[tamanho];
 	int vetorMergeSort[tamanho];
 	int vetorBubbleSort[tamanho];
@@ -91,9 +91,9 @@ void NumerosInteiros(){
 	cabecalho();
 	
 	// Copia o vetor original para um vetor a ser ordenada	
-	copiaVetor(vetor,vetorQuickSort,tamanho);	
-	copiaVetor(vetor,vetorMergeSort,tamanho);
-	copiaVetor(vetor,vetorBubbleSort,tamanho);
+	copiaVetor(vetor,vetorQuickSort,tamanho, 0);
+	copiaVetor(vetor,vetorMergeSort,tamanho, 0);
+	copiaVetor(vetor,vetorBubbleSort,tamanho, 0);
 
 	printf("Vetor:\n");
 	printVetor(vetor, tamanho, 0);
@@ -112,7 +112,7 @@ void NumerosInteiros(){
 	printf("\n\nVetor ordenado pelo MergeSort: (Tempo de execucao: %2f ms)\n",  ((double)t)/((CLOCKS_PER_SEC/1000)));
 	printVetor(vetorMergeSort, tamanho, 0);
 
-	//Ordenando o vetor com bubble
+	//Ordenando o vetor com bubbleSort
 	t = clock();
 	bubble(vetorBubbleSort,tamanho);
 	t = clock() - t;
