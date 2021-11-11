@@ -11,14 +11,23 @@ void cabecalho(){
 	printf("\n\n-------------------------------------------------\n\n");
 }
 
-int tamanhoVetor(){
+int tamanhoVetor(int opcao){
 	int tamanho;
+	int minimo;
+	
+	if (opcao == 2){
+		minimo = 5;
+	} else {
+		minimo = 10; // -> Alterar para 100 antes de entregar
+	}
+	
 	do {
-        // ******************alterar para 100 na entrega*************************
         cabecalho();
-		printf("Digite a quantidade de dados do vetor (minimo 10): ");
+
+		printf("Digite a quantidade de dados do vetor (minimo %d): ", minimo);
+				
 		scanf("%d", &tamanho);
-	} while(tamanho < 10);
+	} while((tamanho < minimo) || (tamanho < 1));
 	
 	return tamanho;
 }

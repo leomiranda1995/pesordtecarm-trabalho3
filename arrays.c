@@ -11,6 +11,16 @@ void geraVetor(int* vetor, int tam, int cont) {
 	}
 }
 
+void vetorManual(int* vetor, int tam, int cont) {
+	if (cont < tam){
+		printf("%d -> ", cont+1);
+		scanf("%d", &vetor[cont]);
+		vetorManual(vetor, tam, ++cont);
+	} else {
+		return;
+	}
+}
+
 void printVetor(int *vetor, int tam, int cont){
 	if (cont < tam-1) {
 		printf("%d, ", vetor[cont]);
