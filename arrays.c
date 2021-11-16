@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <time.h>
 
-void geraVetor(int* vetor, int tam, int cont) {		
-	if (cont < tam) {
-		vetor[cont] = rand();		
-		geraVetor(vetor, tam, ++cont);
-	} else {
-		return;
-	}
+void geraVetor(int* vetor, int tam, int cont) {
+    if (cont < tam) {
+        vetor[cont] = rand()%1000;
+        geraVetor(vetor, tam, ++cont);
+    } else {
+        return;
+    }
 }
 
 void vetorManual(int* vetor, int tam, int cont) {
@@ -19,18 +19,6 @@ void vetorManual(int* vetor, int tam, int cont) {
 	} else {
 		return;
 	}
-}
-
-void printVetor(int *vetor, int tam, int cont){
-	if (cont < tam-1) {
-		printf("%d, ", vetor[cont]);
-	} else if (cont < tam) {
-		printf("%d", vetor[cont]);
-	} else {
-		return;
-	}
-	
-	printVetor(vetor, tam, ++cont);
 }
 
 void leArquivo(int* vetor, int tam){
@@ -58,4 +46,16 @@ void copiaVetor(int* vetorOriginal,int* vetorCopia,int tam, int cont){
 	} else {
 		return;
 	}
+}
+
+void printVetor(int *vetor, int tam, int cont){
+	if (cont < tam-1) {
+		printf("%d, ", vetor[cont]);
+	} else if (cont < tam) {
+		printf("%d", vetor[cont]);
+	} else {
+		return;
+	}
+
+	printVetor(vetor, tam, ++cont);
 }
