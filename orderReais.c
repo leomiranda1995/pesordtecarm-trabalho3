@@ -53,7 +53,7 @@ void mergeR(double *vet, int n) {
   int i, j, k;
   double *tmp;
 
-  tmp = (int *) malloc(n * sizeof(int));
+  tmp = (double *) malloc(n * sizeof(double));
   if (tmp == NULL) {
   	printf("Memoria insuficiente.\n");
     exit(1);

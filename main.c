@@ -226,32 +226,32 @@ void Datas(){
 
 	switch(opcaoVetor){
 		case 1:
-			geraVetorD(vetorDia,vetorMes,vetorAno, tamanho, 0);
+//			geraVetorD(vetorDia,vetorMes,vetorAno, tamanho, 0);
 			break;
 
 		case 2:
             printf("Digite %d Datas:\n\n", tamanho);
-			vetorManualD(vetorDia,vetorMes,VetorA, tamanho, 0);
+//			vetorManualD(vetorDia,vetorMes,VetorA, tamanho, 0);
             break;
 
 	    case 3:
-	        printf("\nAs datas devem estar no formato dd/mm/aaaa.")
-	    	leArquivoD(vetorDia,vetorMes,vetorAno, tamanho);
+	        printf("\nAs datas devem estar no formato dd/mm/aaaa.");
+//	    	leArquivoD(vetorDia,vetorMes,vetorAno, tamanho);
 	    	break;
 	}
 
 	cabecalho();
 
 	//cria vetor Data
-    criaVetorData(vetorDia,vetorMes,vetorAno,vetorData,tamanho,0);
+//    criaVetorData(vetorDia,vetorMes,vetorAno,vetorData,tamanho,0);
 
 	// Copia o vetor original para um vetor a ser ordenado
-	copiaVetorD(vetorData,vetorQuickSort,tamanho, 0);
-	copiaVetorD(vetorData,vetorMergeSort,tamanho, 0);
-	copiaVetorD(vetorData,vetorBubbleSort,tamanho, 0);
+//	copiaVetorD(vetorData,vetorQuickSort,tamanho, 0);
+//	copiaVetorD(vetorData,vetorMergeSort,tamanho, 0);
+//	copiaVetorD(vetorData,vetorBubbleSort,tamanho, 0);
 
 	printf("Vetor:\n");
-	printVetorD(vetorData, tamanho, 0);
+//	printVetorD(vetorData, tamanho, 0);
 
 	// Ordenando o vetor com quickSort
 	t = clock();

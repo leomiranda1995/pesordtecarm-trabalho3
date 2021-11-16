@@ -12,7 +12,7 @@ double rand_double_intervalo(double x, double y){
 
 void geraVetorR(double* vetor, int tam, int cont) {
 	if (cont < tam) {
-		vetor[cont] = rand_double_intervalo(0,1000)
+		vetor[cont] = rand_double_intervalo(0,1000);
 		geraVetorR(vetor, tam, ++cont);
 	} else {
 		return;
