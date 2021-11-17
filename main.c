@@ -7,6 +7,8 @@
 #include "order.c"
 #include "arraysReais.c"
 #include "orderReais.c"
+#include "arraysStrings.c"
+#include "orderStrings.c"
 
 void NumerosInteiros();
 void NumerosReais();
@@ -194,7 +196,74 @@ void NumerosReais(){
 }
 
 void Palavras(){
-	printf("\n\nPalavras aqui...\n\n");
+	int opcaoVetor, tamanho, ordenar;
+	clock_t t;
+
+	cabecalho();
+
+	do {
+		printf("1 - Gerar dados aleatorios");
+		printf("\n2 - Informar dados manualmente");
+		printf("\n3 - Ler arquivo - O arquivo deve estar com o nome [dados.txt] e valores separados por ;");
+
+		printf("\n\nSelecione uma opcao: ");
+		scanf("%d", &opcaoVetor);
+	} while ((opcaoVetor != 1) && (opcaoVetor != 2) && (opcaoVetor != 3));
+
+	tamanho = tamanhoVetor(opcaoVetor);
+
+	char vetor[tamanho];
+	char vetorQuickSort[tamanho];
+	char vetorMergeSort[tamanho];
+	char vetorBubbleSort[tamanho];
+	
+	cabecalho();
+
+	switch(opcaoVetor){
+		case 1:
+			geraVetorString(vetor, tamanho, 0);
+			break;
+
+		case 2:
+			printf("Digite %d numeros inteiros:\n\n", tamanho);
+			vetorManualString(vetor, tamanho, 0);
+			break;
+
+	    case 3:
+	    	leArquivoString(vetor, tamanho);
+	    	break;
+	}
+
+	cabecalho();
+
+	// Copia o vetor original para um vetor a ser ordenado
+	copiaVetorString(vetor,vetorQuickSort,tamanho, 0);
+	copiaVetorString(vetor,vetorMergeSort,tamanho, 0);
+	copiaVetorString(vetor,vetorBubbleSort,tamanho, 0);
+
+	printf("Vetor:\n");
+	printVetorString(vetor, tamanho, 0);
+
+	// Ordenando o vetor com quickSort
+	t = clock();
+	quickSortString(vetorQuickSort, 0, tamanho-1);
+	t = clock() - t;
+	printf("\n\n\nVetor ordenado pelo QuickSort: (Tempo de execucao: %2f ms)\n",  ((double)t)/((CLOCKS_PER_SEC/1000)));
+	printVetorString(vetorQuickSort, tamanho, 0);
+
+	//Ordenando o vetor com bubbleSort
+	t = clock();
+	bubbleString(vetorBubbleSort,tamanho);
+	t = clock() - t;
+	printf("\n\nVetor ordenado pelo BubbleSort: (Tempo de execucao: %2f ms)\n",  ((double)t)/((CLOCKS_PER_SEC/1000)));
+	printVetorString(vetorBubbleSort, tamanho, 0);
+
+    //Ordenando o vetor com mergeSort
+    t = clock();
+	mergesortString(vetorMergeSort,tamanho);
+	t = clock() - t;
+	printf("\n\nVetor ordenado pelo MergeSort: (Tempo de execucao: %2f ms)\n",  ((double)t)/((CLOCKS_PER_SEC/1000)));
+	printVetorString(vetorMergeSort, tamanho, 0);
 }
 
 void Datas(){
