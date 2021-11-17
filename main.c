@@ -60,8 +60,8 @@ void NumerosInteiros(){
 	cabecalho();
 
 	do {
-		printf("1 - Gerar dados aleatorios");
-		printf("\n2 - Informar dados manualmente");
+		printf("1 - Gerar numeros aleatorios");
+		printf("\n2 - Informar numeros manualmente");
 		printf("\n3 - Ler arquivo - O arquivo deve estar com o nome [dados.txt] e valores separados por ;");
 
 		printf("\n\nSelecione uma opcao: ");
@@ -202,9 +202,9 @@ void Palavras(){
 	cabecalho();
 
 	do {
-		printf("1 - Gerar dados aleatorios");
-		printf("\n2 - Informar dados manualmente");
-		printf("\n3 - Ler arquivo - O arquivo deve estar com o nome [dados.txt] e valores separados por ;");
+		printf("1 - Gerar letras aleatorias");
+		printf("\n2 - Informar letras manualmente");
+		printf("\n3 - Ler arquivo - O arquivo deve estar com o nome [caracteres.txt] e as letras separados por ;");
 
 		printf("\n\nSelecione uma opcao: ");
 		scanf("%d", &opcaoVetor);
@@ -225,7 +225,7 @@ void Palavras(){
 			break;
 
 		case 2:
-			printf("Digite %d numeros inteiros:\n\n", tamanho);
+			printf("Digite %d letras:\n\n", tamanho);
 			vetorManualString(vetor, tamanho, 0);
 			break;
 

@@ -5,7 +5,6 @@
 void geraVetorString(char* vetor, int tam, int cont) {
     if (cont < tam) {
         vetor[cont] = 97 + (char)(rand() % 26);
-//        printf("\nVetor[%d] = %c", cont, vetor[cont]);
         geraVetorString(vetor, tam, ++cont);
     } else {
         return;
@@ -13,25 +12,20 @@ void geraVetorString(char* vetor, int tam, int cont) {
 }
 
 void vetorManualString(char* vetor, int tam, int cont) {	
-	if (cont < tam) {
+	if (cont < tam){
 		printf("%d -> ", cont+1);
-//		scanf("%c", &vetor[cont]);
-		vetor[cont] = 97 + (char)(rand() % 26);
-		printf("%c\n", vetor[cont]);
-		
-//        printf("\nVetor[%d] = %c\n", cont, vetor[cont]);
-        
-        vetorManualString(vetor, tam, ++cont);
-    } else {
-        return;
-    }
+		scanf("%s", &vetor[cont]);		
+		vetorManualString(vetor, tam, ++cont);
+	} else {
+		return;
+	}
 }
 
 void leArquivoString(char* vetor, int tam){
     int i;
 
     FILE *arquivo;
-    arquivo = fopen("dados.txt", "r");
+    arquivo = fopen("caracteres.txt", "r");
 
     if (arquivo == NULL) {
         printf("Arquivo nao pode ser aberto\n");
@@ -39,7 +33,7 @@ void leArquivoString(char* vetor, int tam){
     }
 
     for(i=0; i<tam; i++){
-        fscanf(arquivo, "%d;", &vetor[i]);
+        fscanf(arquivo, "%s;", &vetor[i]);
     }
 
     fclose(arquivo);
