@@ -18,7 +18,7 @@ int tamanhoVetor(int opcao){
 	if (opcao == 2){
 		minimo = 5;
 	} else {
-		minimo = 10; // -> Alterar para 100 antes de entregar
+		minimo = 100;
 	}
 	
 	do {

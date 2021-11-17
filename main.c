@@ -9,6 +9,7 @@
 #include "orderReais.c"
 #include "arraysStrings.c"
 #include "orderStrings.c"
+#include "arraysDatas.c"
 
 void NumerosInteiros();
 void NumerosReais();
@@ -301,7 +302,7 @@ void Datas(){
 	int vetorDia[tamanho];
 	int vetorMes[tamanho];
 	int vetorAno[tamanho];
-	int vetorData[tamanho];
+	//char vetorData[tamanho][10];
 	int vetorQuickSort[tamanho];
 	int vetorMergeSort[tamanho];
 	int vetorBubbleSort[tamanho];
@@ -310,24 +311,27 @@ void Datas(){
 
 	switch(opcaoVetor){
 		case 1:
-//			geraVetorD(vetorDia,vetorMes,vetorAno, tamanho, 0);
+			geraVetorD(vetorDia,vetorMes,vetorAno, tamanho, 0);
 			break;
 
 		case 2:
-            printf("Digite %d Datas:\n\n", tamanho);
-//			vetorManualD(vetorDia,vetorMes,VetorA, tamanho, 0);
+            printf("Digite %d Datas entre 01/01/1900 e 31/12/2100 no formato dd/mm/aaaa:\n\n", tamanho);
+			vetorManualD(vetorDia,vetorMes,vetorAno, tamanho, 0);
             break;
 
 	    case 3:
 	        printf("\nAs datas devem estar no formato dd/mm/aaaa.");
-//	    	leArquivoD(vetorDia,vetorMes,vetorAno, tamanho);
+	    	leArquivoD(vetorDia,vetorMes,vetorAno, tamanho);
 	    	break;
 	}
 
 	cabecalho();
 
 	//cria vetor Data
-//    criaVetorData(vetorDia,vetorMes,vetorAno,vetorData,tamanho,0);
+  //  criaVetorData(vetorDia,vetorMes,vetorAno,vetorData,tamanho,0);
+    //for (int i=0;i<tamanho;i++){
+   //    printf("%c",vetorData[i]);
+   // }
 
 	// Copia o vetor original para um vetor a ser ordenado
 //	copiaVetorD(vetorData,vetorQuickSort,tamanho, 0);
@@ -335,8 +339,8 @@ void Datas(){
 //	copiaVetorD(vetorData,vetorBubbleSort,tamanho, 0);
 
 	printf("Vetor:\n");
-//	printVetorD(vetorData, tamanho, 0);
-
+	printVetorD(vetorDia,vetorMes,vetorAno, tamanho, 0);
+/*
 	// Ordenando o vetor com quickSort
 	t = clock();
 	quickSort(vetorQuickSort, 0, tamanho-1);
@@ -357,4 +361,4 @@ void Datas(){
 	t = clock() - t;
 	printf("\n\nVetor ordenado pelo MergeSort: (Tempo de execucao: %2f ms)\n",  ((double)t)/((CLOCKS_PER_SEC/1000)));
 	printVetor(vetorMergeSort, tamanho, 0);
-}
+*/}
