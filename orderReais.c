@@ -2,11 +2,11 @@
 #include <stdlib.h>
 
 void quickSortR(double *vetor, int left, int right) {
-	int i, j, x, y;
-
+	int i, j;
+    double x,y;
 	i = left;
 	j = right;
-	x = vetor[(left+right) / 2];
+    x = vetor[(left+right) / 2];
 
 	while(i <= j) {
 		while(vetor[i] < x && i < right) {

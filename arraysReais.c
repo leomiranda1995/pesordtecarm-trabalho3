@@ -22,7 +22,7 @@ void geraVetorR(double* vetor, int tam, int cont) {
 void vetorManualR(double* vetor, int tam, int cont) {
 	if (cont < tam){
 		printf("%d -> ", cont+1);
-		scanf("%f", &vetor[cont]);
+		scanf("%lf", &vetor[cont]);
 		vetorManualR(vetor, tam, ++cont);
 	} else {
 		return;
@@ -41,7 +41,7 @@ void leArquivoR(double* vetor, int tam){
     }
 
     for(i=0; i<tam; i++){
-        fscanf(arquivo, "%f;", &vetor[i]);
+        fscanf(arquivo, "%lf;", &vetor[i]);
     }
 
     fclose(arquivo);
