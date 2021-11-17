@@ -204,13 +204,17 @@ void Palavras(){
 	do {
 		printf("1 - Gerar letras aleatorias");
 		printf("\n2 - Informar letras manualmente");
-		printf("\n3 - Ler arquivo - O arquivo deve estar com o nome [caracteres.txt] e as letras separados por ;");
+		printf("\n3 - Ler arquivo - O arquivo deve estar com o nome [caracteres.txt] e as letras no arquivo sem separacao");
 
 		printf("\n\nSelecione uma opcao: ");
 		scanf("%d", &opcaoVetor);
 	} while ((opcaoVetor != 1) && (opcaoVetor != 2) && (opcaoVetor != 3));
 
-	tamanho = tamanhoVetor(opcaoVetor);
+	if (opcaoVetor != 2){
+		tamanho = tamanhoVetor(opcaoVetor);		
+	} else {
+		tamanho = 1000;
+	}
 
 	char vetor[tamanho];
 	char vetorQuickSort[tamanho];
@@ -218,6 +222,9 @@ void Palavras(){
 	char vetorBubbleSort[tamanho];
 	
 	cabecalho();
+	
+	int qtdDigitada = 0;
+	char palavra[1000];
 
 	switch(opcaoVetor){
 		case 1:
@@ -225,8 +232,16 @@ void Palavras(){
 			break;
 
 		case 2:
-			printf("Digite %d letras:\n\n", tamanho);
-			vetorManualString(vetor, tamanho, 0);
+			do {
+				printf("Digite sua palavra (min 5 - max 1000 letras sem espacos): ");
+				scanf("%s", &palavra);
+				
+				qtdDigitada = strlen(palavra);
+				
+			} while (qtdDigitada > 1000 || qtdDigitada < 5);
+			
+			tamanho = qtdDigitada;			
+			copiaVetorString(palavra, vetor, tamanho, 0);
 			break;
 
 	    case 3:

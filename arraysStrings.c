@@ -12,35 +12,6 @@ void geraVetorString(char* vetor, int tam, int cont) {
     }
 }
 
-void copiaVetorString(char* vetorOriginal,char* vetorCopia,int tam, int cont){
-	if (cont < tam){
-		vetorCopia[cont] = vetorOriginal[cont];
-		copiaVetorString(vetorOriginal, vetorCopia, tam, ++cont);
-	} else {
-		return;
-	}
-}
-
-void vetorManualString(char* vetor, int tam, int cont) {	
-	char aux[tam+ tam/2];
-	
-	int tamDigitado = 0;
-	
-	do {
-		if (tamDigitado > 0){
-			printf("\nDigitou %d letras, deve digitar uma palavra com %d letras: ", tamDigitado, tam);
-		} else {
-			printf("\nDigite sua palavra com %d letras: ", tam);	
-		}
-		scanf("%s", &aux);
-		
-		tamDigitado = strlen(aux);
-		
-	} while (tamDigitado != tam);
-	
-	copiaVetorString(aux, vetor, tam, 0);
-}
-
 void leArquivoString(char* vetor, int tam){
     int i;
 
@@ -53,10 +24,19 @@ void leArquivoString(char* vetor, int tam){
     }
 
     for(i=0; i<tam; i++){
-        fscanf(arquivo, "%s;", &vetor[i]);
+        fscanf(arquivo, "%s", &vetor[i]);
     }
 
     fclose(arquivo);
+}
+
+void copiaVetorString(char* vetorOriginal,char* vetorCopia,int tam, int cont){
+	if (cont < tam){
+		vetorCopia[cont] = vetorOriginal[cont];
+		copiaVetorString(vetorOriginal, vetorCopia, tam, ++cont);
+	} else {
+		return;
+	}
 }
 
 void printVetorString(char *vetor, int tam, int cont){
